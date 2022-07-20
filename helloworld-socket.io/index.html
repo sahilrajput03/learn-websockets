@@ -27,16 +27,24 @@
 				})
 
 				// Receiving message LOGIC
-				socket.on('message', (message) => {
-					const el = document.createElement('li')
-					el.innerHTML = message
-					document.querySelector('ul').appendChild(el)
+				socket.on('message', (payload) => {
+					let {clientId, name, message} = payload
+
+					// Using 'You' identifier if the message belong to current user:
+					if (clientId === socket.id) {
+						name = 'You'
+					}
+
+					const el = document.createElement('div')
+					el.innerHTML = name + ': ' + message
+					document.querySelector('#messages-container').appendChild(el)
 				})
 
 				// Sending message LOGIC
 				const sendMessg = () => {
 					const data = document.querySelector('input').value
 					socket.emit('message', data)
+					document.querySelector('input').value = ''
 				}
 
 				// ATTACH to Send button click (not using send buttton anymore infavor of direct `Enter` key)
@@ -61,7 +69,7 @@
 		<br />
 		<section>
 			CHAT BOX
-			<ul></ul>
+			<div id="messages-container"></div>
 		</section>
 
 		<input placeholder="message" />

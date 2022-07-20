@@ -10,22 +10,27 @@ io.on('connection', (socket) => {
 	const clientId = socket.id
 	const name = faker.name.firstName()
 
-	console.log(`${name} just connected` + clientId)
+	console.log(`${name} just connected with id ` + clientId)
 
 	// On successful connection we send 'name' event to the client
 	io.to(clientId).emit('name', name)
 
 	// listening on `message` event
 	socket.on('message', (message) => {
-		console.log(name, ':', message)
-
 		// ---REMOVING BELOW CODE IN FAVOR OF USING REALISTIC NAME---
-		// BROADCAST 'MESSAGE' EVENT TO ALL CLIENTS
-		// let data = `${clientId.substr(0, 2)} said: ${message}` // we can pass objects as well.
+		// Using name as clientId
+		// const data = `${clientId.substr(0, 2)} said: ${message}` // we can pass objects as well.
 
-		// BROADCAST 'MESSAGE' EVENT TO ALL CLIENTS (Using *REALISTIC NAMES* instead of ids)
-		let data = `${name} said: ${message}` // we can pass objects as well.
-		io.emit('message', data)
+		// we can pass objects as well.
+		console.log('SERVER-LOG--', `${name} said: ${message}`)
+
+		// Send to all
+		const payload = {clientId, name, message}
+		io.emit('message', payload)
+
+		// ----REMOVING THIS IN FAVOR OF SENDING MESSAGE TO ALL.
+		// Send to all except current person i.e., 'id = clientId'
+		// socket.broadcast.emit('message', data)
 	})
 })
 
