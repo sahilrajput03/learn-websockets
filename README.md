@@ -15,7 +15,7 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
 
 - [Click here](https://github.com/sahilrajput03/sahilrajput03/blob/master/learn-webrtc.md)
 
-**WebSockets is same as WebRTC?**
+**Q. WebSockets is same as WebRTC?**
 
 - Ans. **NO! WebRTC is for browser-to-browser based communication instead of brower to server and backforth. ~ Fireship.io**
 
