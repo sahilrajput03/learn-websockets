@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "npm run nodemon server.js",
+		"start": "nodemon server.js",
 		"start-frontend": "serve -l 8080",
 		"start-backend": "PORT=8081 nodemon server.js"
 	},
