@@ -9,6 +9,12 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
 - The connection is left open until one of the parties is left off.
 - Its also known as full-duplex connection in telecommunication terms that means both parties can talk at the same time.
 
-## Yet another page of mine on webrtc projects resources
+### More
 
-[Click here](https://github.com/sahilrajput03/sahilrajput03/blob/master/learn-webrtc.md)
+**Yet another page of mine on webrtc projects resources**
+
+- [Click here](https://github.com/sahilrajput03/sahilrajput03/blob/master/learn-webrtc.md)
+
+**WebSockets is same as WebRTC?**
+
+Ans.**NO**. WebRTC is for browser-to-browser based communication instead of brower to server and backforth. ~ Fireship.io
