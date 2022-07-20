@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Learn WebSockets</title>
+		<script>
+			// Learn `defer` is only for external script, i.e., defer is ignored if there is no `src` property on the script tag.
+
+			window.onload = () => {
+				const socket = new WebSocket('ws://localhost:8081') // WebSocket is present in browser already.
+
+				// listen for messages sent by the backend websocket server
+				socket.onmessage = ({data}) => {
+					console.log('Message from server: ', data)
+				}
+
+				document.querySelector('#btn1').onclick = () => {
+					socket.send('life is awesome')
+				}
+			}
+		</script>
+	</head>
+	<body>
+		Hello world!
+		<br />
+
+		<button id="btn1">Button One</button>
+	</body>
+</html>

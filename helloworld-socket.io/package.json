@@ -1,0 +1,17 @@
+{
+	"name": "helloworld-socket.io",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start-frontend": "serve -l 8080",
+		"start-backend": "PORT=8081 nodemon server.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@faker-js/faker": "^7.3.0",
+		"socket.io": "^4.5.1"
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"name": "helloworld-ws",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start-frontend": "serve -l 8080",
+		"start-backend": "PORT=8081 nodemon server.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"ws": "^8.8.1"
+	}
+}
