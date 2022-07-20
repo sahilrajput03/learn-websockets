@@ -4,9 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon server.js",
 		"start-frontend": "serve -l 8080",
-		"start-backend": "PORT=8081 nodemon server.js"
+		"start-backend": "PORT=8081 nodemon server.js",
+		"start-heroku": "nodemon server.js"
 	},
 	"scripts:comments": {
 		"start-frontend": "I was using this coz browser gives fast-refresh using this as compared to static file served via express."
@@ -17,6 +17,7 @@
 	"dependencies": {
 		"@faker-js/faker": "^7.3.0",
 		"express": "^4.18.1",
+		"nodemon": "^2.0.19",
 		"socket.io": "^4.5.1"
 	}
 }
