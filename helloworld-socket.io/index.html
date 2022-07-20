@@ -9,7 +9,9 @@
 		<script>
 			window.onload = () => {
 				// io object is available globally bcoz we linked `socket.io` script from cdn.
-				const socket = io('ws://localhost:8081')
+				const {hostname, port} = window.location
+				const socket = io(`ws://${hostname}:${port}`)
+				// const socket = io('ws://localhost:8081')
 				window.socket = socket // for making it accessible by browser console for debugging
 				window.name
 

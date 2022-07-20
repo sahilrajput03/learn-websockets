@@ -5,6 +5,8 @@ const server = require('http').createServer(app)
 // USE BELOW LINE INSTEAD IF YOU DO NOT USE EXPRESS AT ALL
 // const server = require('http').createServer()
 
+console.log('HEROKU:', process.env.HEROKU)
+
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html')
 })

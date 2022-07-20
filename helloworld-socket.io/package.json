@@ -6,7 +6,7 @@
 	"scripts": {
 		"start-frontend": "serve -l 8080",
 		"start-backend": "PORT=8081 nodemon server.js",
-		"start-heroku": "nodemon server.js"
+		"start-heroku": "HEROKU=true nodemon server.js"
 	},
 	"scripts:comments": {
 		"start-frontend": "I was using this coz browser gives fast-refresh using this as compared to static file served via express."
