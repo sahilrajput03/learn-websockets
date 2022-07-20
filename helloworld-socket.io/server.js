@@ -1,10 +1,24 @@
-const http = require('http').createServer()
 const {faker} = require('@faker-js/faker')
+const express = require('express')
+const app = express()
+const server = require('http').createServer(app)
+// USE BELOW LINE INSTEAD IF YOU DO NOT USE EXPRESS AT ALL
+// const server = require('http').createServer()
+
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/index.html')
+})
 
 // @ts-ignore
-const io = require('socket.io')(http, {
+const {Server} = require('socket.io')
+const io = new Server(server, {
 	cors: {origin: '*'}, // allowing cors requests from anywhere.
 })
+
+// BELOW CODE ALSO WORKS
+// const io = require('socket.io')(server, {
+// 	cors: {origin: '*'}, // allowing cors requests from anywhere.
+// })
 
 io.on('connection', (socket) => {
 	const clientId = socket.id
@@ -35,6 +49,6 @@ io.on('connection', (socket) => {
 })
 
 const PORT = process.env.PORT || 8081
-http.listen(PORT, () => {
+server.listen(PORT, () => {
 	console.log(`server started listening on port ${PORT}`)
 })
