@@ -17,7 +17,7 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
 
 **WebSockets is same as WebRTC?**
 
-Ans.**NO**. WebRTC is for browser-to-browser based communication instead of brower to server and backforth. ~ Fireship.io
+Ans. **NO! WebRTC is for browser-to-browser based communication instead of brower to server and backforth. ~ Fireship.io**
 
 Links:
 
