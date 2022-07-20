@@ -11,3 +11,5 @@ npm i socket.io
 - To use `socket.io` from frontend we need have cdn link or just install in react project(i.e., unlinke `WebSocket` `socket.io` is not a builtin in browser).
 
 ![](./img-socket.io1.png)
+
+**Code Structure i.e., `express` + `socket.io` from official docs: https://socket.io/get-started/chat**
