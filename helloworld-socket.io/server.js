@@ -1,7 +1,5 @@
 const {faker} = require('@faker-js/faker')
 const express = require('express')
-const Mustache = require('mustache')
-const fs = require('fs')
 
 const app = express()
 const server = require('http').createServer(app)
