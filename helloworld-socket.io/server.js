@@ -12,14 +12,7 @@ const IS_HEROKU = !!process.env.IS_HEROKU
 console.log({IS_HEROKU})
 
 app.get('/', (req, res) => {
-	// Simple way
 	res.sendFile(__dirname + '/index.html')
-
-	// Render the mustache html template and pass some data dynamically
-	// const template = fs.readFileSync('./index.html', 'utf8')
-	// const rendered = Mustache.render(template, {IS_HEROKU})
-	// console.log({rendered})
-	// res.send(rendered)
 })
 
 // @ts-ignore
