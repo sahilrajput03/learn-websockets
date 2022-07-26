@@ -11,8 +11,16 @@
 				// io object is available globally bcoz we linked `socket.io` script from cdn.
 				let {hostname, port} = window.location
 				// ALERT: In below websocket address using 'wss' instead of 'ws' is necessary when deployed to heroku. YO!!
-				const socket = io(`wss://${hostname}:${port}`)
+
+				// const socket = io(`wss://${hostname}:${port}`)
 				// const socket = io('ws://localhost:8081') //! TEMP: FOR LOCAL RUNNING ONLY.
+
+				// I am using mustache to fill the `HEROKU` variable in server.js file on the fly.
+				// prettier-ignore
+				// let socketAddress = {{ IS_HEROKU }} ? `wss://${hostname}:${port}` : `ws://${hostname}:${port}`
+				let socketAddress = hostname !== 'localhost' ? `wss://${hostname}:${port}` : `ws://${hostname}:${port}`
+
+				const socket = io(socketAddress)
 				window.socket = socket // for making it accessible by browser console for debugging
 				window.name
 

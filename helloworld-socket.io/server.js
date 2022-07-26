@@ -1,14 +1,25 @@
 const {faker} = require('@faker-js/faker')
 const express = require('express')
+const Mustache = require('mustache')
+const fs = require('fs')
+
 const app = express()
 const server = require('http').createServer(app)
 // USE BELOW LINE INSTEAD IF YOU DO NOT USE EXPRESS AT ALL
 // const server = require('http').createServer()
 
-console.log('HEROKU:', process.env.HEROKU)
+const IS_HEROKU = !!process.env.IS_HEROKU
+console.log({IS_HEROKU})
 
 app.get('/', (req, res) => {
+	// Simple way
 	res.sendFile(__dirname + '/index.html')
+
+	// Render the mustache html template and pass some data dynamically
+	// const template = fs.readFileSync('./index.html', 'utf8')
+	// const rendered = Mustache.render(template, {IS_HEROKU})
+	// console.log({rendered})
+	// res.send(rendered)
 })
 
 // @ts-ignore
