@@ -9,10 +9,10 @@
 		<script>
 			window.onload = () => {
 				// io object is available globally bcoz we linked `socket.io` script from cdn.
-				const {hostname, port} = window.location
+				let {hostname, port} = window.location
 				// ALERT: In below websocket address using 'wss' instead of 'ws' is necessary when deployed to heroku. YO!!
-				const socket = io(`wss://${hostname}:${port}`)
-				// const socket = io('ws://localhost:8081')
+				// const socket = io(`wss://${hostname}:${port}`)
+				const socket = io('ws://localhost:8081') //! TEMP: FOR LOCAL RUNNING ONLY.
 				window.socket = socket // for making it accessible by browser console for debugging
 				window.name
 
@@ -24,9 +24,25 @@
 				// })
 
 				// Getting name from 'name' event and setting it in dom
-				socket.on('name', (name) => {
-					document.querySelector('#name').innerHTML = name
-					window.name = name
+				socket.on('name', (payload) => {
+					const {name, clientId, CLIENTS} = payload
+
+					if (payload.clientId === socket.id) {
+						document.querySelector('#name').innerHTML = name
+						window.name = name
+					} else {
+						const el = document.createElement('div')
+						el.innerHTML = name + ' connected to chat. Say Hi👋 to ' + name
+						document.querySelector('#messages-container').appendChild(el)
+					}
+
+					const allClients =
+						'CURRENT CLIENTS: ' +
+						Object.keys(CLIENTS)
+							.map((c) => CLIENTS[c])
+							.join(', ')
+					console.log({allClients})
+					alert(allClients)
 				})
 
 				// Receiving message LOGIC

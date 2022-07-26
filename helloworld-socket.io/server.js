@@ -22,14 +22,28 @@ const io = new Server(server, {
 // 	cors: {origin: '*'}, // allowing cors requests from anywhere.
 // })
 
+const currentConnections = {}
+
 io.on('connection', (socket) => {
 	const clientId = socket.id
 	const name = faker.name.firstName()
+	currentConnections[clientId] = name // maintaing cache
+
+	socket.on('disconnect', function () {
+		delete currentConnections[clientId]
+	})
 
 	console.log(`${name} just connected with id ` + clientId)
 
+	// Get currently connected clientIds
+	let clientMAP = io.sockets.adapter.rooms
+	let clientIds = Array.from(clientMAP.keys()) // MAP to array conversion
+	console.log({clientIds})
+
 	// On successful connection we send 'name' event to the client
-	io.to(clientId).emit('name', name)
+	const payload = {name, clientId, CLIENTS: currentConnections}
+	// io.to(clientId).emit('name', payload) // io.to method is to send to a particular client and in this case we send to the current client.
+	io.emit('name', payload) // io.emit is to send to all clients.
 
 	// listening on `message` event
 	socket.on('message', (message) => {
