@@ -129,24 +129,33 @@
 
 				/**
 				 * Get typing status
+				//  Below logic works the best possible way it can! ~ Sahil
 				 */
 				let timer
+				let who = []
 				socket.on('typing', (payload) => {
 					clearTimeout(timer)
 					const {clientName, clientId, TIME_GAP} = payload
 
+					// Pushing client to to ```who```  for TIME_GAP period
+					if (who.indexOf(clientName) < 0) who.push(clientName)
+
 					const el = document.querySelector('.typing')
-					const label = clientName + ' is typing..'
+					// const label = clientName + ' is typing..'
+					const auriliaryVerb = who.length === 1 ? ' is' : ' are'
+					const label = who.join(', ') + auriliaryVerb + ' typing..'
 					el.innerHTML = label
 					// console.log(label)
 
 					timer = setTimeout(() => {
 						el.innerHTML = ''
+						who = []
 						console.log('cleared')
 					}, TIME_GAP)
 				})
 
 				/**
+				 *
 				 * OTHER UTILITY FUNCTIONS
 				 *
 				 */
