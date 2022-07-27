@@ -42,10 +42,8 @@
 						document.querySelector('#name').innerHTML = clientName
 						window.clientName = clientName
 					} else {
-						// PUSH TO CHATBOX
-						const el = document.createElement('div')
-						el.innerHTML = '👋 ' + clientName + ' connected to chat. Say Hi to ' + clientName + '..'
-						document.querySelector('#messages-container').appendChild(el)
+						// Send to chatbox
+						sendToChatBox('👋 ' + clientName + ' connected to chat. Say Hi to ' + clientName + '..')
 					}
 
 					const allClients = Object.values(currentConnections).join(', ')
@@ -73,10 +71,8 @@
 						clearNetworkFailedMessages()
 					}
 
-					// PUSH TO CHATBOX
-					const el = document.createElement('div')
-					el.innerHTML = clientName + ': ' + message
-					document.querySelector('#messages-container').appendChild(el)
+					// Send to chatbox
+					sendToChatBox(clientName + ': ' + message)
 				})
 
 				/**
@@ -96,10 +92,8 @@
 					// }, 1_000);
 
 					//! SHOWS LIKE GREY TICK i.e, not confirmed on server state.
-					// PUSH TO CHATBOX
-					const el = document.createElement('div')
-					el.innerHTML = potentialMessage
-					document.querySelector('#messages-container').appendChild(el)
+					// Send to chatbox
+					sendToChatBox(potentialMessage)
 				}
 				// ATTACH to Send button click (not using send buttton anymore infavor of direct `Enter` key)
 				// document.querySelector('#btn-send').onclick = sendMessg
@@ -117,10 +111,8 @@
 				socket.on('exit', (payload) => {
 					const {clientId, clientName} = payload
 
-					// PUSH TO CHATBOX
-					const el = document.createElement('div')
-					el.innerHTML = '🚶 ' + clientName + ' left the chat'
-					document.querySelector('#messages-container').appendChild(el)
+					// Send to chatbox
+					sendToChatBox('🚶 ' + clientName + ' left the chat')
 				})
 
 				/**
@@ -144,6 +136,17 @@
 							// src: https://www.javascripttutorial.net/dom/manipulating/remove-a-dom-element/
 							document.querySelector('#messages-container').removeChild(element)
 						})
+				}
+
+				/**
+				 * Send to chatbox
+				 */
+				function sendToChatBox(message) {
+					if (message === '') return
+
+					const el = document.createElement('div')
+					el.innerHTML = message
+					document.querySelector('#messages-container').appendChild(el)
 				}
 			}
 		</script>
