@@ -178,14 +178,20 @@
 					// Get list of last 100 messages and filter network failed messages from those only coz filtering from all the messages can be perf bottleneck.
 
 					const N = 100
-					const nodeList = document.querySelector('#messages-container').querySelectorAll('div')
+					// const nodeList = document.querySelector('#messages-container').querySelectorAll('div')
+					// New way coz now I am nesting each message inside a flexbox div
+					// const nodeList = document.querySelector('#messages-container').querySelector('div').querySelector('div')
+					const nodeList = document.querySelector('#messages-container').querySelectorAll('div.message')
 					const recentMessages = nLastItems(Array.from(nodeList), N) // conversion of nodelist to array is important else error is thrown i.e, ```NodeList.slice() is not a function```.
+					window.nodeList = nodeList
+					window.recentMessages = recentMessages
 
 					recentMessages
 						.filter((el) => el.innerHTML.endsWith(FAILED_MESSAGE_SUFFIX))
 						.forEach((element) => {
 							// src: https://www.javascripttutorial.net/dom/manipulating/remove-a-dom-element/
-							document.querySelector('#messages-container').removeChild(element)
+							// document.querySelector('#messages-container').removeChild(element)
+							document.querySelector('#messages-container').removeChild(element.parentElement)
 						})
 				}
 
@@ -196,14 +202,22 @@
 					if (message === '') return
 
 					const el = document.createElement('div')
-					el.innerHTML = message
+					el.style.display = 'flex'
+
+					const elChild = document.createElement('div')
+					elChild.innerHTML = message
+					elChild.style.textAlign = 'left'
+
+					el.append(elChild)
 
 					if (clientId === 'notification') {
-						el.style.textAlign = 'center'
+						el.style.justifyContent = 'center'
 					} else if (socket.id === clientId) {
-						el.style.textAlign = 'right'
+						el.style.justifyContent = 'flex-end'
+						elChild.classList.add('message', 'message-me')
 					} else {
-						el.style.textAlign = 'left'
+						el.style.justifyContent = 'flex-start'
+						elChild.classList.add('message', 'message-others')
 					}
 
 					document.querySelector('#messages-container').appendChild(el)
@@ -265,6 +279,25 @@
 			.typing {
 				font-style: italic;
 				color: grey;
+			}
+
+			.message {
+				color: white;
+				padding: 3px 8px;
+				margin: 5px;
+				font-weight: bold;
+			}
+
+			.message-me {
+				text-align: right;
+				background: blueviolet;
+				border-radius: 20px 20px 0px 20px;
+			}
+
+			.message-others {
+				text-align: left;
+				background: deepskyblue;
+				border-radius: 20px 20px 20px 0px;
 			}
 		</style>
 	</body>
