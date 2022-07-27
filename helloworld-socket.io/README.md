@@ -4,6 +4,8 @@ Deployed @ https://elegant-chat-app.herokuapp.com/
 
 Source: [WebSockets in 100 Seconds & Beyond with Socket.io](https://youtu.be/1BfCnjr_Vjg)
 
+OFFICIAL CHEATSHEET: https://socket.io/docs/v3/emit-cheatsheet/
+
 ```bash
 npm i socket.io
 ```
