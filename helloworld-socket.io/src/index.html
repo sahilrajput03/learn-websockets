@@ -9,6 +9,13 @@
 		<title>Document</title>
 		<script>
 			window.onload = () => {
+				let SOCKET_CONNECTION_SUCCESS = false
+				let AVATAR_IMAGE_LOADED = false
+				const attemptShowHtmlBody = () => {
+					if (SOCKET_CONNECTION_SUCCESS && AVATAR_IMAGE_LOADED) {
+						document.body.style.display = 'block'
+					}
+				}
 				// const POTENTIAL_MESSAGES_LIST = []
 				let typingStatus = false
 				const typingStatusIds = []
@@ -30,7 +37,8 @@
 				 * Show body only when connection is successful
 				 */
 				socket.on('connect', () => {
-					document.body.style.display = 'block'
+					SOCKET_CONNECTION_SUCCESS = true
+					attemptShowHtmlBody()
 				})
 
 				/**
@@ -41,6 +49,12 @@
 
 					if (payload.clientId === socket.id) {
 						document.querySelector('#name').innerHTML = clientName
+						let avatarImg = document.querySelector('.avatar-me')
+						avatarImg.src = `https://avatars.dicebear.com/api/adventurer/${clientName}.svg`
+						avatarImg.addEventListener('load', () => {
+							AVATAR_IMAGE_LOADED = true
+							attemptShowHtmlBody()
+						})
 						window.clientName = clientName
 					} else {
 						// Send to chatbox
@@ -232,21 +246,32 @@
 				 * 3. Set or Update Online people section - UTILITY FUNCTION
 				 */
 				function updateOnlinePeopleSection(currentConnections) {
+					const el = document.querySelector('#online')
+
 					// Remove self (coz we'll add `You` later..)
 					delete currentConnections[socket.id]
+					console.log({currentConnections})
 
-					const allClients = Object.values(currentConnections).join(', ')
-					const el = document.querySelector('#online')
-					el.innerHTML = allClients + ` and ${window.clientName} (You)`
-					// console.log({allClients})
+					if (Object.keys(currentConnections).length === 0) {
+						// el.innerHTML = `${window.clientName} (You). Invite others by sending the url to other people..`
+						el.innerHTML = `Invite your friends by sharing above url.`
+					} else {
+						const allClients = Object.values(currentConnections).join(', ')
+						el.innerHTML = allClients + ` and ${window.clientName} (You)`
+						// console.log({allClients})
+					}
 				}
 			}
 		</script>
 	</head>
 	<body style="text-align: center">
 		<h2>Group Chat App</h2>
+		<button class="btn-copy-url" onclick=" navigator.clipboard.writeText(window.location.href);">Copy group url</button>
 
 		<section>
+			<!-- User Avatar -->
+			<img class="avatar-me" width="100px" />
+			<br />
 			<span class="bold">You:</span>
 			<span id="name"></span>
 		</section>
@@ -307,6 +332,18 @@
 			.message-notification-joined {
 				background: orange;
 				border-radius: 20px;
+			}
+			.btn-copy-url {
+				display: block;
+				color: white;
+				border: none;
+				background: crimson;
+				padding: 3px 8px;
+				font-weight: 600;
+				font-size: 15px;
+				border-radius: 20px 20px 20px 20px;
+				margin: 2.5px auto;
+				font-style: italic;
 			}
 		</style>
 	</body>

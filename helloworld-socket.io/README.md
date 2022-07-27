@@ -4,6 +4,15 @@ Deployed @ https://elegant-chat-app.herokuapp.com/
 
 Source: [WebSockets in 100 Seconds & Beyond with Socket.io](https://youtu.be/1BfCnjr_Vjg)
 
+**Awesome avatars:**
+
+- [Source - fireshipio's Video](https://youtu.be/TqnC96-nXAA)
+- https://avatars.dicebear.com/styles/adventurer
+- Usage: https://avatars.dicebear.com/api/adventurer/ANY_TEXT_HERE.svg
+- Github: [dicebear/dicebear](https://github.com/dicebear/dicebear)
+- Docs: [Click here](https://avatars.dicebear.com/docs)
+- Api Usage - Docs: [Click here](https://avatars.dicebear.com/docs/http-api)
+
 OFFICIAL CHEATSHEET: https://socket.io/docs/v3/emit-cheatsheet/
 
 ```bash
