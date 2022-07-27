@@ -46,12 +46,7 @@
 						sendToChatBox('👋 ' + clientName + ' connected to chat. Say Hi to ' + clientName + '..')
 					}
 
-					const allClients = Object.values(currentConnections).join(', ')
-					console.log({allClients})
-
-					// Add current users to a online section to show update online people
-					const el = document.querySelector('#online')
-					el.innerHTML = allClients
+					updateOnlinePeopleSection(currentConnections)
 				})
 
 				/**
@@ -109,15 +104,21 @@
 				 * Get notified when any user exit
 				 */
 				socket.on('exit', (payload) => {
-					const {clientId, clientName} = payload
+					const {clientId, clientName, currentConnections} = payload
 
 					// Send to chatbox
 					sendToChatBox('🚶 ' + clientName + ' left the chat')
+
+					updateOnlinePeopleSection(currentConnections)
 				})
 
 				/**
 				 * OTHER UTILITY FUNCTIONS
 				 *
+				 */
+
+				/**
+				 * 1. Clearn failed network messages - UTILITY FUNCTION
 				 */
 				function clearNetworkFailedMessages() {
 					// Utility function to get last n items from an array
@@ -139,7 +140,7 @@
 				}
 
 				/**
-				 * Send to chatbox
+				 * 2. Send to chatbox - UTILITY FUNCTION
 				 */
 				function sendToChatBox(message) {
 					if (message === '') return
@@ -147,6 +148,19 @@
 					const el = document.createElement('div')
 					el.innerHTML = message
 					document.querySelector('#messages-container').appendChild(el)
+				}
+
+				/**
+				 * 3. Set or Update Online people section - UTILITY FUNCTION
+				 */
+				function updateOnlinePeopleSection(currentConnections) {
+					// Remove self (coz we'll add `You` later..)
+					delete currentConnections[socket.id]
+
+					const allClients = Object.values(currentConnections).join(', ')
+					const el = document.querySelector('#online')
+					el.innerHTML = allClients + ` and ${window.clientName} (You)`
+					// console.log({allClients})
 				}
 			}
 		</script>

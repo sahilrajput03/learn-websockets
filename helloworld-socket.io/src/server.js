@@ -33,8 +33,9 @@ io.on('connection', (socket) => {
 
 	socket.on('disconnect', function () {
 		delete currentConnections[clientId]
-		const payload = {clientId, clientName}
+		const payload = {clientId, clientName, currentConnections}
 		io.emit('exit', payload)
+		// console.log('exited:: ', clientName)
 	})
 
 	console.log(`${clientName} just connected with id ` + clientId)
