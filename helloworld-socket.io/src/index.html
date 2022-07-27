@@ -10,6 +10,8 @@
 		<script>
 			window.onload = () => {
 				// const POTENTIAL_MESSAGES_LIST = []
+				let typingStatus = false
+				const typingStatusIds = []
 				const FAILED_MESSAGE_SUFFIX = '🔴' // Failed: Waiting for internet connection..
 
 				// ::STATUS:: 1. SENT, 2. SYNCED TO OTHER DEVICE, 3. SEEN
@@ -93,9 +95,23 @@
 				// document.querySelector('#btn-send').onclick = sendMessg
 				//
 				// ATTACH to `Enter` button event
+				let notified = false
+				let TIME_GAP = 3_000
+				const SEND_TYPING_EVENT = () => socket.emit('typing', TIME_GAP)
 				document.querySelector('input').onkeydown = (e) => {
 					if (e.key === 'Enter') {
 						sendMessg()
+					} else {
+						if (!notified) {
+							console.log('sent typing..')
+							SEND_TYPING_EVENT()
+
+							setTimeout(() => {
+								SEND_TYPING_EVENT()
+								notified = false
+							}, TIME_GAP)
+						}
+						notified = true
 					}
 				}
 
@@ -109,6 +125,25 @@
 					sendToChatBox('notification', '🚶 ' + clientName + ' left the chat')
 
 					updateOnlinePeopleSection(currentConnections)
+				})
+
+				/**
+				 * Get typing status
+				 */
+				let timer
+				socket.on('typing', (payload) => {
+					clearTimeout(timer)
+					const {clientName, clientId, TIME_GAP} = payload
+
+					const el = document.querySelector('.typing')
+					const label = clientName + ' is typing..'
+					el.innerHTML = label
+					// console.log(label)
+
+					timer = setTimeout(() => {
+						el.innerHTML = ''
+						console.log('cleared')
+					}, TIME_GAP)
 				})
 
 				/**
@@ -191,6 +226,7 @@
 			<div id="messages-container"></div>
 		</section>
 
+		<div class="typing"></div>
 		<input placeholder="message" />
 		<!-- <button id="btn-send">Send</button> -->
 
@@ -209,6 +245,10 @@
 			}
 			.bold {
 				font-weight: bold;
+			}
+			.typing {
+				font-style: italic;
+				color: grey;
 			}
 		</style>
 	</body>

@@ -6,6 +6,9 @@ const server = require('http').createServer(app)
 // USE BELOW LINE INSTEAD IF YOU DO NOT USE EXPRESS AT ALL
 // const server = require('http').createServer()
 
+//? SOCKET.IO CHEATSHEET
+//? YAHHH: https://socket.io/docs/v3/emit-cheatsheet/
+
 const IS_HEROKU = !!process.env.IS_HEROKU
 console.log({IS_HEROKU})
 
@@ -66,6 +69,14 @@ io.on('connection', (socket) => {
 		// ----REMOVING THIS IN FAVOR OF SENDING MESSAGE TO ALL.
 		// Send to all except current person i.e., 'id = clientId'
 		// socket.broadcast.emit('message', data)
+	})
+
+	/**
+	 * To all clients in the current namespace except the sender
+	 */
+	socket.on('typing', (TIME_GAP) => {
+		// Increasing TIME_GAP by 500ms to keep the flow of showing message in frontend undisturbed bcoz of few milliseconds delay between the time set in TIME_GAP.
+		socket.broadcast.emit('typing', {clientName, clientId, TIME_GAP})
 	})
 })
 
