@@ -141,9 +141,16 @@
 					if (who.indexOf(clientName) < 0) who.push(clientName)
 
 					const el = document.querySelector('.typing')
-					// const label = clientName + ' is typing..'
-					const auriliaryVerb = who.length === 1 ? ' is' : ' are'
-					const label = who.join(', ') + auriliaryVerb + ' typing..'
+					// const label = who.join(', ')
+
+					let label
+					if (who.length === 1) {
+						label = who[0] + ' is typing..'
+					} else {
+						const allExceptlast = who.slice(0, -1)
+						const lastPerson = who[who.length - 1] // get last item
+						label = `${allExceptlast.join(', ')}  and ${lastPerson} are typing..`
+					}
 					el.innerHTML = label
 					// console.log(label)
 
