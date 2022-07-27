@@ -212,6 +212,8 @@
 
 					if (clientId === 'notification') {
 						el.style.justifyContent = 'center'
+						// el.classList.add('message', 'message-notification-joined')
+						elChild.classList.add('message', 'message-notification-joined')
 					} else if (socket.id === clientId) {
 						el.style.justifyContent = 'flex-end'
 						elChild.classList.add('message', 'message-me')
@@ -280,12 +282,12 @@
 				font-style: italic;
 				color: grey;
 			}
-
 			.message {
 				color: white;
 				padding: 3px 8px;
-				margin: 5px;
+				margin: 2.5px 5px;
 				font-weight: bold;
+				font-size: 15px;
 			}
 
 			.message-me {
@@ -298,6 +300,10 @@
 				text-align: left;
 				background: deepskyblue;
 				border-radius: 20px 20px 20px 0px;
+			}
+			.message-notification-joined {
+				background: orange;
+				border-radius: 20px;
 			}
 		</style>
 	</body>
