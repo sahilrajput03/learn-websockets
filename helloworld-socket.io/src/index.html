@@ -227,6 +227,9 @@
 					if (clientId === 'notification') {
 						el.style.justifyContent = 'center'
 						elChild.classList.add('message', 'message-notification-joined')
+						// Supress typing status whenever we receive message from someone other
+						typingEl.innerHTML = ''
+						who = []
 					} else if (socket.id === clientId) {
 						el.style.justifyContent = 'flex-end'
 						elChild.classList.add('message', 'message-me')
