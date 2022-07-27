@@ -25,16 +25,15 @@
 				window.socket = socket // for making it accessible by browser console for debugging
 
 				/**
-				 * Getting name from 'name' event and setting it in dom #############################################################################
+				 * Show body only when connection is successful
 				 */
-				//
-				// (BELOW WORKS VERY GOOD THOUGH but removed in favor of getting realistic name from 'name' event from server)
-				// Adding `name` to dom
-				// socket.on('connect', () => {
-				// Faking it from `socket.id`
-				// 	document.querySelector('#name').innerHTML = socket.id.substr(0, 2)
-				// })
-				//
+				socket.on('connect', () => {
+					document.body.style.display = 'block'
+				})
+
+				/**
+				 * `Join` event helps to get name for ourselves and get notification when somebody else joins
+				 */
 				socket.on('join', (payload) => {
 					const {clientName, clientId, currentConnections} = payload
 
@@ -43,7 +42,7 @@
 						window.clientName = clientName
 					} else {
 						// Send to chatbox
-						sendToChatBox('👋 ' + clientName + ' connected to chat. Say Hi to ' + clientName + '..')
+						sendToChatBox('notification', '👋 ' + clientName + ' connected to chat. Say Hi to ' + clientName + '..')
 					}
 
 					updateOnlinePeopleSection(currentConnections)
@@ -67,7 +66,7 @@
 					}
 
 					// Send to chatbox
-					sendToChatBox(clientName + ': ' + message)
+					sendToChatBox(clientId, clientName + ': ' + message)
 				})
 
 				/**
@@ -88,7 +87,7 @@
 
 					//! SHOWS LIKE GREY TICK i.e, not confirmed on server state.
 					// Send to chatbox
-					sendToChatBox(potentialMessage)
+					sendToChatBox(socket.id, potentialMessage)
 				}
 				// ATTACH to Send button click (not using send buttton anymore infavor of direct `Enter` key)
 				// document.querySelector('#btn-send').onclick = sendMessg
@@ -107,7 +106,7 @@
 					const {clientId, clientName, currentConnections} = payload
 
 					// Send to chatbox
-					sendToChatBox('🚶 ' + clientName + ' left the chat')
+					sendToChatBox('notification', '🚶 ' + clientName + ' left the chat')
 
 					updateOnlinePeopleSection(currentConnections)
 				})
@@ -142,11 +141,20 @@
 				/**
 				 * 2. Send to chatbox - UTILITY FUNCTION
 				 */
-				function sendToChatBox(message) {
+				function sendToChatBox(clientId, message) {
 					if (message === '') return
 
 					const el = document.createElement('div')
 					el.innerHTML = message
+
+					if (clientId === 'notification') {
+						el.style.textAlign = 'center'
+					} else if (socket.id === clientId) {
+						el.style.textAlign = 'right'
+					} else {
+						el.style.textAlign = 'left'
+					}
+
 					document.querySelector('#messages-container').appendChild(el)
 				}
 
@@ -188,8 +196,15 @@
 
 		<div>(Press Enter key to send)</div>
 
+		<!-- STYLES HERE -->
 		<style>
+			body {
+				/* I show body only when socket connection is successful. */
+				display: none;
+			}
 			section {
+				width: 300px;
+				margin: auto;
 				margin-bottom: 30px;
 			}
 			.bold {
