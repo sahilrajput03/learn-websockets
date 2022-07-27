@@ -9,8 +9,11 @@
 		<title>Document</title>
 		<script>
 			window.onload = () => {
-				const POTENTIAL_MESSAGES_LIST = []
-				const FAILED_MESSAGE_SUFFIX = '🔴Failed: Waiting for internet connection..'
+				// const POTENTIAL_MESSAGES_LIST = []
+				const FAILED_MESSAGE_SUFFIX = '🔴' // Failed: Waiting for internet connection..
+
+				// ::STATUS:: 1. SENT, 2. SYNCED TO OTHER DEVICE, 3. SEEN
+				const icons = ['✔', '✅', '👀'] // Source: https://unicode-table.com/en/
 
 				// io object is available globally bcoz we linked `socket.io` script from cdn.
 				let {hostname, port} = window.location
@@ -67,22 +70,7 @@
 						/**
 						 * Clearning network failed messages
 						 */
-						// Utility function to get last n items from an array
-						const nLastItems = (arr, n) => arr.slice(Math.max(arr.length - n, 0))
-
-						// POTENTIAL_MESSAGES_LIST
-						// Get list of last 100 messages and filter network failed messages from those only coz filtering from all the messages can be perf bottleneck.
-
-						const N = 100
-						const nodeList = document.querySelector('#messages-container').querySelectorAll('div')
-						const recentMessages = nLastItems(Array.from(nodeList), N) // conversion of nodelist to array is important else error is thrown i.e, ```NodeList.slice() is not a function```.
-
-						recentMessages
-							.filter((el) => el.innerHTML.endsWith(FAILED_MESSAGE_SUFFIX))
-							.forEach((element) => {
-								// src: https://www.javascripttutorial.net/dom/manipulating/remove-a-dom-element/
-								document.querySelector('#messages-container').removeChild(element)
-							})
+						clearNetworkFailedMessages()
 					}
 
 					// PUSH TO CHATBOX
@@ -101,7 +89,11 @@
 					document.querySelector('input').value = ''
 
 					const potentialMessage = 'You' + ': ' + messg + '&nbsp;'.repeat(3) + FAILED_MESSAGE_SUFFIX // coz initially message is local only.
-					POTENTIAL_MESSAGES_LIST.push(potentialMessage)
+					// POTENTIAL_MESSAGES_LIST.push(potentialMessage)
+
+					// let id = setTimeout(() => {
+
+					// }, 1_000);
 
 					//! SHOWS LIKE GREY TICK i.e, not confirmed on server state.
 					// PUSH TO CHATBOX
@@ -130,6 +122,29 @@
 					el.innerHTML = '🚶 ' + clientName + ' left the chat'
 					document.querySelector('#messages-container').appendChild(el)
 				})
+
+				/**
+				 * OTHER UTILITY FUNCTIONS
+				 *
+				 */
+				function clearNetworkFailedMessages() {
+					// Utility function to get last n items from an array
+					const nLastItems = (arr, n) => arr.slice(Math.max(arr.length - n, 0))
+
+					// POTENTIAL_MESSAGES_LIST
+					// Get list of last 100 messages and filter network failed messages from those only coz filtering from all the messages can be perf bottleneck.
+
+					const N = 100
+					const nodeList = document.querySelector('#messages-container').querySelectorAll('div')
+					const recentMessages = nLastItems(Array.from(nodeList), N) // conversion of nodelist to array is important else error is thrown i.e, ```NodeList.slice() is not a function```.
+
+					recentMessages
+						.filter((el) => el.innerHTML.endsWith(FAILED_MESSAGE_SUFFIX))
+						.forEach((element) => {
+							// src: https://www.javascripttutorial.net/dom/manipulating/remove-a-dom-element/
+							document.querySelector('#messages-container').removeChild(element)
+						})
+				}
 			}
 		</script>
 	</head>
