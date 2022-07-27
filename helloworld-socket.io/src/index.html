@@ -77,6 +77,8 @@
 				 */
 				const sendMessg = () => {
 					const messg = document.querySelector('input').value
+					if (!messg) return
+
 					socket.emit('message', messg)
 					document.querySelector('input').value = ''
 
