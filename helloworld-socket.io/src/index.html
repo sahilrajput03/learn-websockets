@@ -97,17 +97,15 @@
 				// ATTACH to `Enter` button event
 				let notified = false
 				let TIME_GAP = 3_000
-				const SEND_TYPING_EVENT = () => socket.emit('typing', TIME_GAP)
 				document.querySelector('input').onkeydown = (e) => {
 					if (e.key === 'Enter') {
 						sendMessg()
 					} else {
 						if (!notified) {
 							console.log('sent typing..')
-							SEND_TYPING_EVENT()
+							socket.emit('typing', TIME_GAP)
 
 							setTimeout(() => {
-								SEND_TYPING_EVENT()
 								notified = false
 							}, TIME_GAP)
 						}
@@ -212,7 +210,6 @@
 
 					if (clientId === 'notification') {
 						el.style.justifyContent = 'center'
-						// el.classList.add('message', 'message-notification-joined')
 						elChild.classList.add('message', 'message-notification-joined')
 					} else if (socket.id === clientId) {
 						el.style.justifyContent = 'flex-end'
@@ -220,6 +217,10 @@
 					} else {
 						el.style.justifyContent = 'flex-start'
 						elChild.classList.add('message', 'message-others')
+						// Supress typing status whenever we receive message from someone other
+						const typingEl = document.querySelector('.typing')
+						typingEl.innerHTML = ''
+						who = []
 					}
 
 					document.querySelector('#messages-container').appendChild(el)
