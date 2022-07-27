@@ -16,80 +16,107 @@
 
 				const socket = io(socketAddress)
 				window.socket = socket // for making it accessible by browser console for debugging
-				window.name
 
+				/**
+				 * Getting name from 'name' event and setting it in dom #############################################################################
+				 */
+				//
 				// (BELOW WORKS VERY GOOD THOUGH but removed in favor of getting realistic name from 'name' event from server)
 				// Adding `name` to dom
 				// socket.on('connect', () => {
 				// Faking it from `socket.id`
 				// 	document.querySelector('#name').innerHTML = socket.id.substr(0, 2)
 				// })
-
-				// Getting name from 'name' event and setting it in dom
-				socket.on('name', (payload) => {
-					const {name, clientId, CLIENTS} = payload
+				//
+				socket.on('join', (payload) => {
+					const {clientName, clientId, currentConnections} = payload
 
 					if (payload.clientId === socket.id) {
-						document.querySelector('#name').innerHTML = name
-						window.name = name
+						document.querySelector('#name').innerHTML = clientName
+						window.clientName = clientName
 					} else {
+						// PUSH TO CHATBOX
 						const el = document.createElement('div')
-						el.innerHTML = name + ' connected to chat. Say Hi👋 to ' + name
+						el.innerHTML = '👋 ' + clientName + ' connected to chat. Say Hi to ' + clientName + '..'
 						document.querySelector('#messages-container').appendChild(el)
 					}
 
-					const allClients =
-						'CURRENT CLIENTS: ' +
-						Object.keys(CLIENTS)
-							.map((c) => CLIENTS[c])
-							.join(', ')
+					const allClients = Object.values(currentConnections).join(', ')
 					console.log({allClients})
-					alert(allClients)
+
+					// Add current users to a online section to show update online people
+					const el = document.querySelector('#online')
+					el.innerHTML = allClients
 				})
 
-				// Receiving message LOGIC
+				/**
+				 * Receiving message LOGIC
+				 * =======================
+				 */
 				socket.on('message', (payload) => {
-					let {clientId, name, message} = payload
+					let {clientId, clientName, message} = payload
 
 					// Using 'You' identifier if the message belong to current user:
 					if (clientId === socket.id) {
-						name = 'You'
+						clientName = 'You'
 					}
 
+					// PUSH TO CHATBOX
 					const el = document.createElement('div')
-					el.innerHTML = name + ': ' + message
+					el.innerHTML = clientName + ': ' + message
 					document.querySelector('#messages-container').appendChild(el)
 				})
 
-				// Sending message LOGIC
+				/**
+				 * Sending message LOGIC
+				 * =====================
+				 */
 				const sendMessg = () => {
 					const data = document.querySelector('input').value
 					socket.emit('message', data)
 					document.querySelector('input').value = ''
-				}
 
+					//! TODO: PUSH TO CHATBOX AND SAY SHOWS LIKE GREY TICK i.e, not confirmed on server state.
+				}
 				// ATTACH to Send button click (not using send buttton anymore infavor of direct `Enter` key)
 				// document.querySelector('#btn-send').onclick = sendMessg
-
+				//
 				// ATTACH to `Enter` button event
 				document.querySelector('input').onkeydown = (e) => {
 					if (e.key === 'Enter') {
 						sendMessg()
 					}
 				}
+
+				/**
+				 * Get notified when any user exit
+				 */
+				socket.on('exit', (payload) => {
+					const {clientId, clientName} = payload
+
+					// PUSH TO CHATBOX
+					const el = document.createElement('div')
+					el.innerHTML = '🚶 ' + clientName + ' left the chat'
+					document.querySelector('#messages-container').appendChild(el)
+				})
 			}
 		</script>
 	</head>
 	<body style="text-align: center">
-		Group Chat App
-		<div>
-			User:
-			<span id="name"></span>
-		</div>
+		<h2>Group Chat App</h2>
 
-		<br />
 		<section>
-			CHAT BOX
+			<span class="bold">You:</span>
+			<span id="name"></span>
+		</section>
+
+		<section>
+			<span class="bold">Online:</span>
+			<span id="online"></span>
+		</section>
+
+		<section>
+			<div class="bold">CHAT BOX</div>
 			<div id="messages-container"></div>
 		</section>
 
@@ -97,5 +124,14 @@
 		<!-- <button id="btn-send">Send</button> -->
 
 		<div>(Press Enter key to send)</div>
+
+		<style>
+			section {
+				margin-bottom: 30px;
+			}
+			.bold {
+				font-weight: bold;
+			}
+		</style>
 	</body>
 </html>

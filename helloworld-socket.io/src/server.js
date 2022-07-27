@@ -28,24 +28,26 @@ const currentConnections = {}
 
 io.on('connection', (socket) => {
 	const clientId = socket.id
-	const name = faker.name.firstName()
-	currentConnections[clientId] = name // maintaing cache
+	const clientName = faker.name.firstName()
+	currentConnections[clientId] = clientName // maintaing cache
 
 	socket.on('disconnect', function () {
 		delete currentConnections[clientId]
+		const payload = {clientId, clientName}
+		io.emit('exit', payload)
 	})
 
-	console.log(`${name} just connected with id ` + clientId)
+	console.log(`${clientName} just connected with id ` + clientId)
 
 	// Get currently connected clientIds
 	let clientMAP = io.sockets.adapter.rooms
 	let clientIds = Array.from(clientMAP.keys()) // MAP to array conversion
 	console.log({clientIds})
 
-	// On successful connection we send 'name' event to the client
-	const payload = {name, clientId, CLIENTS: currentConnections}
-	// io.to(clientId).emit('name', payload) // io.to method is to send to a particular client and in this case we send to the current client.
-	io.emit('name', payload) // io.emit is to send to all clients.
+	// On successful connection we send 'join' event to the client
+	const payload = {clientName, clientId, currentConnections}
+	// io.to(clientId).emit('join', payload) // io.to method is to send to a particular client and in this case we send to the current client.
+	io.emit('join', payload) // io.emit is to send to all clients.
 
 	// listening on `message` event
 	socket.on('message', (message) => {
@@ -54,10 +56,10 @@ io.on('connection', (socket) => {
 		// const data = `${clientId.substr(0, 2)} said: ${message}` // we can pass objects as well.
 
 		// we can pass objects as well.
-		console.log('SERVER-LOG--', `${name} said: ${message}`)
+		console.log('SERVER-LOG--', `${clientName} said: ${message}`)
 
 		// Send to all
-		const payload = {clientId, name, message}
+		const payload = {clientId, clientName, message}
 		io.emit('message', payload)
 
 		// ----REMOVING THIS IN FAVOR OF SENDING MESSAGE TO ALL.

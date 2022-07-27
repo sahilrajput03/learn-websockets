@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "PORT=8081 nodemon server.js",
-		"start-heroku": "IS_HEROKU=true nodemon server.js"
+		"dev": "PORT=8081 nodemon src/server.js",
+		"start-heroku": "IS_HEROKU=true nodemon src/server.js"
 	},
 	"keywords": [],
 	"author": "",
