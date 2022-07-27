@@ -14,6 +14,7 @@
 				const attemptShowHtmlBody = () => {
 					if (SOCKET_CONNECTION_SUCCESS && AVATAR_IMAGE_LOADED) {
 						document.body.style.display = 'block'
+						document.getElementById('input-messagebox').focus()
 					}
 				}
 				// const POTENTIAL_MESSAGES_LIST = []
@@ -227,7 +228,8 @@
 					if (clientId === 'notification') {
 						el.style.justifyContent = 'center'
 						elChild.classList.add('message', 'message-notification-joined')
-						// Supress typing status whenever we receive message from someone other
+						// Supress typing status whenever we receive some notification
+						const typingEl = document.querySelector('.typing')
 						typingEl.innerHTML = ''
 						who = []
 					} else if (socket.id === clientId) {
@@ -290,7 +292,7 @@
 		</section>
 
 		<div class="typing"></div>
-		<input placeholder="message" />
+		<input placeholder="message" id="input-messagebox" />
 		<!-- <button id="btn-send">Send</button> -->
 
 		<div>(Press Enter key to send)</div>
