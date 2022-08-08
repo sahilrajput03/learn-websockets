@@ -29,7 +29,7 @@
 				let {hostname, port} = window.location
 				// ALERT: In below websocket address using 'wss' instead of 'ws' is necessary when deployed to heroku. YO!!
 
-				let socketAddress = hostname === 'localhost' ? `ws://${hostname}:${port}` : `wss://${hostname}:${port}`
+				let socketAddress = hostname === 'localhost' || hostname.startsWith('192') ? `ws://${hostname}:${port}` : `wss://${hostname}:${port}`
 
 				const socket = io(socketAddress)
 				window.socket = socket // for making it accessible by browser console for debugging
@@ -66,7 +66,7 @@
 				})
 
 				/**
-				 * Receiving message LOGIC
+				 * Receive message LOGIC
 				 * =======================
 				 */
 				socket.on('message', (payload) => {
@@ -84,6 +84,15 @@
 
 					// Send to chatbox
 					sendToChatBox(clientId, clientName + ': ' + message)
+
+					// Scroll to bottom on new messages
+					// const el = document.getElementById('end-section')
+					// el.scrollIntoView(false) // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+
+					// Scroll to bottom, https://stackoverflow.com/a/11715670/10012446
+					// window.scrollTo(0, document.body.scrollHeight)
+					// pass `options` object  for scroll behaviour; https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#parameters
+					window.scrollTo({left: 0, top: document.body.scrollHeight, behavior: 'smooth'})
 				})
 
 				/**
@@ -291,11 +300,14 @@
 			<div id="messages-container"></div>
 		</section>
 
-		<div class="typing"></div>
-		<input placeholder="message" id="input-messagebox" />
-		<!-- <button id="btn-send">Send</button> -->
+		<!-- Using end-section to scroll to bottom on new message -->
+		<section id="end-section">
+			<div class="typing"></div>
+			<input placeholder="message" id="input-messagebox" />
+			<!-- <button id="btn-send">Send</button> -->
 
-		<div>(Press Enter key to send)</div>
+			<div>(Press Enter key to send)</div>
+		</section>
 
 		<!-- STYLES HERE -->
 		<style>
@@ -321,6 +333,8 @@
 				margin: 2.5px 5px;
 				font-weight: bold;
 				font-size: 15px;
+				/* ....temp... */
+				/* height: 1000px; */
 			}
 
 			.message-me {
