@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
 
 	// On successful connection we send 'join' event to the client
 	const payload = {clientName, clientId, currentConnections}
-	// io.to(clientId).emit('join', payload) // io.to method is to send to a particular client and in this case we send to the current client.
+	// io.to(clientId).emit('join', payload) // io.to method is to send to a particular/specific client and in this case we send to the current client.
 	io.emit('join', payload) // io.emit is to send to all clients.
 
 	// listening on `message` event
