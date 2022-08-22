@@ -9,4 +9,4 @@ Amazing referece article (has code): https://gabrieltanner.org/blog/nestjs-realt
 ## NESTJS DOCS - FIXING error "server rendered codes doesn't match after hydration"
 
 - https://nextjs.org/docs/messages/react-hydration-error
-- Lovely article: [here](https://www.joshwcomeau.com/react/the-perils-of-rehydration/) from above nextjs docs page.
+- Lovely article: [here](https://www.joshwcomeau.com/react/the-perils-of-rehydration/) from above nextjs docs page and I fixed the isseu using `<ClinetOnly>` component for the issue.
