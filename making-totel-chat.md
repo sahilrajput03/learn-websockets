@@ -81,3 +81,7 @@ And finally you get the `clientId` and `clientSecret` like that:
 ![image](https://user-images.githubusercontent.com/31458531/186216312-3785d189-9dce-4def-af69-89207505a047.png)
 
 ![image](https://user-images.githubusercontent.com/31458531/186219381-50050c52-9a74-4ca7-ad37-b1e7fcc16191.png)
+
+## Other
+
+- Backup of socket.io implementation in nextjs: https://gist.github.com/sahilrajput03/4183cdf2c49bccaa80614bed1c0fd77d
