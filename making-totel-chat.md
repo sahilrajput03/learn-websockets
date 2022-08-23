@@ -4,6 +4,7 @@
 
 - chat app with firebase: https://youtu.be/zQyrwxMPm88
 - logrocket article 2022: https://blog.logrocket.com/how-to-build-chatroom-app-react-firebase/
+- fixed firebase db error for temp from this: https://stackoverflow.com/a/54444948/10012446
 
 ```bash
 npm install firebase react-firebase-hooks
