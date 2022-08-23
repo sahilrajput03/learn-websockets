@@ -55,3 +55,7 @@ Out consent screen is ready now we can create the OAuth credentials:
 ![image](https://user-images.githubusercontent.com/31458531/186210730-e1035082-ffd3-4c65-8cc7-d75a198c4086.png)
 
 ![image](https://user-images.githubusercontent.com/31458531/186211290-fc96998f-1b7e-4ad7-bfcb-dcc9566ecc8a.png)
+
+And finally you get the `clientId` and `clientSecret` like that:
+
+![image](https://user-images.githubusercontent.com/31458531/186211473-0f5a0abc-ecd6-4731-8dd7-78d4f61a5f55.png)
