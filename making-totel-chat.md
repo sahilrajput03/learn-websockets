@@ -10,6 +10,8 @@ npm install firebase react-firebase-hooks
 
 ![image](https://user-images.githubusercontent.com/31458531/186233190-ef3f43e3-9319-4e53-9d58-53e73e1a5894.png)
 
+For firestore db I used this version: ![image](https://user-images.githubusercontent.com/31458531/186234576-923d7e96-16a1-4196-9748-c45bed79c929.png)
+
 
 ## previous life
 
