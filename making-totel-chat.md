@@ -23,9 +23,9 @@ Thats how project auth is organized:
 
 ## Implementing google signin
 
+- Google APIs console: [Click here](https://console.developers.google.com/apis)
 - Source: [Official google signin docs](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid)
 - Follow along video by an amazing person: [@youtube](https://youtu.be/XjOEKbHkAeo)
-- Visit [Google APIs console](https://console.developers.google.com/apis)
 
 ![image](https://user-images.githubusercontent.com/31458531/186201499-bef2e6a9-ceae-41f3-961c-01a0efb8b953.png)
 
