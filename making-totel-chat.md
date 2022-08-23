@@ -30,3 +30,7 @@ Source: [Official google signin docs](https://developers.google.com/identity/gsi
 ![image](https://user-images.githubusercontent.com/31458531/186201852-f076c164-71b5-4fe8-ad4f-a5dcf7e77e65.png)
 
 ![image](https://user-images.githubusercontent.com/31458531/186202731-2f8eb951-3636-4352-a944-d4a38080616e.png)
+
+On Oauth Consent Screen you need to fill it like this:
+
+![image](https://user-images.githubusercontent.com/31458531/186205305-553349f3-f2ad-4bc9-8121-2b8a080260c1.png)
