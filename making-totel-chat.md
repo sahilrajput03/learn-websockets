@@ -2,7 +2,8 @@
 
 ## new life
 
-chat app with firebase: https://youtu.be/zQyrwxMPm88
+- chat app with firebase: https://youtu.be/zQyrwxMPm88
+- logrocket article 2022: https://blog.logrocket.com/how-to-build-chatroom-app-react-firebase/
 
 ```bash
 npm install firebase react-firebase-hooks
