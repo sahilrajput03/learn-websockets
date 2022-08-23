@@ -20,3 +20,7 @@ Amazing referece article (has code): https://gabrieltanner.org/blog/nestjs-realt
 Thats how project auth is organized:
 
 ![image](https://user-images.githubusercontent.com/31458531/186140831-3386bc01-0f53-49a5-9f2f-1c758a82f92f.png)
+
+## Implementing google signin
+
+![image](https://user-images.githubusercontent.com/31458531/186201499-bef2e6a9-ceae-41f3-961c-01a0efb8b953.png)
