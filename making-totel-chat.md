@@ -61,6 +61,8 @@ And finally you get the `clientId` and `clientSecret` like that:
 
 ![image](https://user-images.githubusercontent.com/31458531/186211473-0f5a0abc-ecd6-4731-8dd7-78d4f61a5f55.png)
 
-**NOTE: for nextjs's nextauth we change the redirect url like that:**
+**NOTE: for nextjs's nextauth we change the redirect url like that, (Since I am running on port 3001, I need make the port as 3001)** 
 
 ![image](https://user-images.githubusercontent.com/31458531/186216312-3785d189-9dce-4def-af69-89207505a047.png)
+
+![image](https://user-images.githubusercontent.com/31458531/186219381-50050c52-9a74-4ca7-ad37-b1e7fcc16191.png)
