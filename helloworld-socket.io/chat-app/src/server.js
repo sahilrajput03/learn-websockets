@@ -6,9 +6,11 @@ const server = require('http').createServer(app)
 // USE BELOW LINE INSTEAD IF YOU DO NOT USE EXPRESS AT ALL
 // const server = require('http').createServer()
 
-//? SOCKET.IO CHEATSHEET
-//? YAHHH: https://socket.io/docs/v3/emit-cheatsheet/
+/**
+	SOCKET.IO CHEATSHEET
 
+	https://socket.io/docs/v3/emit-cheatsheet/
+*/
 const IS_HEROKU = !!process.env.IS_HEROKU
 console.log({IS_HEROKU})
 
