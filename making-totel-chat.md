@@ -13,4 +13,4 @@ Amazing referece article (has code): https://gabrieltanner.org/blog/nestjs-realt
 - A Stackoverflow question [related to this](https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render)
 - Medium article on making realtime chat app with nextjs only - [Click here](https://betterprogramming.pub/socket-io-and-nextjs-build-real-time-chat-application-part-1-976555ecba). BTW: Theo uses pusher for the RTC communication: [check here](https://github.com/sahilrajput03/nextjs-examples-testing/blob/master/Readme.md#next-auth)
 - Implementing socket.io+nextjs+heroku: *45 Upvotes* [Stackoverflow answer](https://stackoverflow.com/questions/57512366/how-to-use-socket-io-with-next-js-api-routes?answertab=scoredesc#tab-top)
-- WE are using https://cloudinary.com/ for api for compressing and managing images and videos.
+- WE are using https://cloudinary.com/ for api for compressing and managing images and videos, check in file: `src/pages/api/upload.js`.
