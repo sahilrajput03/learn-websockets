@@ -60,3 +60,7 @@ Out consent screen is ready now we can create the OAuth credentials:
 And finally you get the `clientId` and `clientSecret` like that:
 
 ![image](https://user-images.githubusercontent.com/31458531/186211473-0f5a0abc-ecd6-4731-8dd7-78d4f61a5f55.png)
+
+**NOTE: for nextjs's nextauth we change the redirect url like that:**
+
+![image](https://user-images.githubusercontent.com/31458531/186216312-3785d189-9dce-4def-af69-89207505a047.png)
