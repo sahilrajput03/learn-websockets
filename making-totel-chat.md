@@ -34,3 +34,8 @@ Source: [Official google signin docs](https://developers.google.com/identity/gsi
 On Oauth Consent Screen you need to fill it like this:
 
 ![image](https://user-images.githubusercontent.com/31458531/186205305-553349f3-f2ad-4bc9-8121-2b8a080260c1.png)
+
+By default we get general details of the user who is logging-in in our app but we want more details from the user, we can get it by selecting some desired scopes from the list (point 2):
+
+![image](https://user-images.githubusercontent.com/31458531/186206119-43b589ed-a651-4aba-a219-3922d7331f50.png)
+
