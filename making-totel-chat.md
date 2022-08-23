@@ -7,6 +7,7 @@
 - fixed firebase db error for temp from this: https://stackoverflow.com/a/54444948/10012446
 - login with facebbok-firebase-docs: https://firebase.google.com/docs/auth/web/facebook-login#web-version-9_5
 - creating app_id and app_secret: https://support.appmachine.com/support/solutions/articles/80000978442
+- In facebook setting up login_with you may set site: `https://for-next-auth-example-project.firebaseapp.com` and callback as `https://for-next-auth-example-project.firebaseapp.com/__/auth/handler` as suggested when you turn on the fb login from firebase console.
 
 ```bash
 npm install firebase react-firebase-hooks
