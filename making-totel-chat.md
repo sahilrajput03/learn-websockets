@@ -47,3 +47,7 @@ We don't want any test users so we can click save and continue:
 In the end it shows the summary and you can simply click "BACK TO DASHBOARD" now:
 
 ![image](https://user-images.githubusercontent.com/31458531/186206901-06f6d58e-7b0a-472f-9a77-95f97d88bcbe.png)
+
+Out consent screen is ready now we can create the OAuth credentials:
+
+![image](https://user-images.githubusercontent.com/31458531/186210444-4a8cfe3f-0f56-4f5f-b03f-9077e6ccbfa2.png)
