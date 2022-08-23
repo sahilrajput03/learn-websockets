@@ -6,6 +6,7 @@
 - logrocket article 2022: https://blog.logrocket.com/how-to-build-chatroom-app-react-firebase/
 - fixed firebase db error for temp from this: https://stackoverflow.com/a/54444948/10012446
 - login with facebbok-firebase-docs: https://firebase.google.com/docs/auth/web/facebook-login#web-version-9_5
+- creating app_id and app_secret: https://support.appmachine.com/support/solutions/articles/80000978442
 
 ```bash
 npm install firebase react-firebase-hooks
