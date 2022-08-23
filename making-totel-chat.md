@@ -39,3 +39,10 @@ By default we get general details of the user who is logging-in in our app but w
 
 ![image](https://user-images.githubusercontent.com/31458531/186206119-43b589ed-a651-4aba-a219-3922d7331f50.png)
 
+We don't want any test users so we can click save and continue:
+
+![image](https://user-images.githubusercontent.com/31458531/186206697-bbfbbaee-63a5-4146-ad14-e17e99886180.png)
+
+In the end it shows the summary and you can simply click "BACK TO DASHBOARD" now:
+
+![image](https://user-images.githubusercontent.com/31458531/186206901-06f6d58e-7b0a-472f-9a77-95f97d88bcbe.png)
