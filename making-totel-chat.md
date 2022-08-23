@@ -1,5 +1,18 @@
 # making totel chat app
 
+## new life
+
+chat app with firebase: https://youtu.be/zQyrwxMPm88
+
+```bash
+npm install firebase react-firebase-hooks
+```
+
+![image](https://user-images.githubusercontent.com/31458531/186233190-ef3f43e3-9319-4e53-9d58-53e73e1a5894.png)
+
+
+## previous life
+
 - Use socket.io with nestjs: [Youtube Video](https://www.youtube.com/watch?v=7xpLYk4q0Sg)
 - Nestjs docs: [Gateways](https://docs.nestjs.com/websockets/gateways) and [Official example on Github](https://github.com/nestjs/nest/tree/master/sample/02-gateways)
 - Socket.io: https://socket.io/docs/v4/
