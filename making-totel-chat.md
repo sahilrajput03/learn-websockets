@@ -17,7 +17,10 @@ npm install -g firebase-tools
 firebase login
 # list firebase projects
 firebase projects:list
+# COMPLETE CLI REFERECNE: https://firebase.google.com/docs/cli#sign-in-test-cli
 
+
+# firebase emulator suite: https://youtu.be/pkgvFNPdiEs
 ```
 
 ```bash
