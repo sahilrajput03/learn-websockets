@@ -8,7 +8,7 @@
 - login with facebbok-firebase-docs: https://firebase.google.com/docs/auth/web/facebook-login#web-version-9_5
 - creating app_id and app_secret: https://support.appmachine.com/support/solutions/articles/80000978442
 - [help_video](https://www.youtube.com/watch?v=kEfe9u5F_L0) In facebook setting up login_with you may set site: `https://for-next-auth-example-project.firebaseapp.com` and for **Valid OAuth Redirect URIs** you need to set it to `https://for-next-auth-example-project.firebaseapp.com/__/auth/handler` as suggested when you turn on the fb login from firebase console.
-- Firebase Local Emulator Suite: [Docs](https://firebase.google.com/docs/emulator-suite)
+- Firebase Local Emulator Suite: [Docs - Basic info](https://firebase.google.com/docs/emulator-suite), [Implementation: Get Started](https://firebase.google.com/docs/emulator-suite/connect_and_prototype?database=Firestore)
 
 ```bash
 # installed firebase cli
