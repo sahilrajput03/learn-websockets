@@ -13,6 +13,8 @@
 ```bash
 # installed firebase cli
 npm install -g firebase-tools
+# login
+firebase login
 
 ```
 
