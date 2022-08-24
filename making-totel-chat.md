@@ -106,3 +106,10 @@ And finally you get the `clientId` and `clientSecret` like that:
 ## Other
 
 - Backup of socket.io implementation in nextjs: https://gist.github.com/sahilrajput03/4183cdf2c49bccaa80614bed1c0fd77d
+
+
+## This is what i need to do to fix the auth via vanillay hooks later on
+
+Source: [css-tricks article on making chat room with firebase and react](https://css-tricks.com/building-a-real-time-chat-app-with-react-and-firebase/)
+
+![image](https://user-images.githubusercontent.com/31458531/186436899-148e2aec-9f31-428f-96ea-a6eaa0e57d53.png)
