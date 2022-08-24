@@ -11,6 +11,7 @@
 - Firebase Local Emulator Suite: [Docs - Basic info](https://firebase.google.com/docs/emulator-suite), [Implementation: Get Started](https://firebase.google.com/docs/emulator-suite/connect_and_prototype?database=Firestore)
 - Firebase emulator suite: The Local Firebase Emulator UI in 15 minutes - Official Googe's Channle: The Local Firebase Emulator UI in 15 minutes: https://youtu.be/pkgvFNPdiEs
 - Deployed my [learn-firebase](https://github.com/sahilrajput03/learn-firebase) on gihtub
+- Cloud Firestore [Data Model](https://firebase.google.com/docs/firestore/data-model#:~:text=Cloud%20Firestore%20is%20a%20NoSQL,set%20of%20key%2Dvalue%20pairs.)
 
 ```bash
 # installed firebase cli
