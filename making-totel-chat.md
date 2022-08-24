@@ -10,6 +10,7 @@
 - [help_video](https://www.youtube.com/watch?v=kEfe9u5F_L0) In facebook setting up login_with you may set site: `https://for-next-auth-example-project.firebaseapp.com` and for **Valid OAuth Redirect URIs** you need to set it to `https://for-next-auth-example-project.firebaseapp.com/__/auth/handler` as suggested when you turn on the fb login from firebase console.
 - Firebase Local Emulator Suite: [Docs - Basic info](https://firebase.google.com/docs/emulator-suite), [Implementation: Get Started](https://firebase.google.com/docs/emulator-suite/connect_and_prototype?database=Firestore)
 - Firebase emulator suite: The Local Firebase Emulator UI in 15 minutes - Official Googe's Channle: The Local Firebase Emulator UI in 15 minutes: https://youtu.be/pkgvFNPdiEs
+- Deployed my [learn-firebase](https://github.com/sahilrajput03/learn-firebase) on gihtub
 
 ```bash
 # installed firebase cli
