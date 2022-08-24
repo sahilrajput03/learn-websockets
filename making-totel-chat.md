@@ -11,6 +11,12 @@
 - Firebase Local Emulator Suite: [Docs](https://firebase.google.com/docs/emulator-suite)
 
 ```bash
+# installed firebase cli
+npm install -g firebase-tools
+
+```
+
+```bash
 npm install firebase react-firebase-hooks
 ```
 
