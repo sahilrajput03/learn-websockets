@@ -15,6 +15,8 @@
 npm install -g firebase-tools
 # login
 firebase login
+# list firebase projects
+firebase projects:list
 
 ```
 
