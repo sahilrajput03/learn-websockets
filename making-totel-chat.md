@@ -34,6 +34,11 @@ npm install firebase react-firebase-hooks
 For firestore db I used this version: ![image](https://user-images.githubusercontent.com/31458531/186234576-923d7e96-16a1-4196-9748-c45bed79c929.png)
 
 
+## We are using this to provide internalization to the nextjs app
+
+![image](https://user-images.githubusercontent.com/31458531/186733854-adba961c-b230-401f-91e7-a0b5fb54e9dc.png)
+
+
 ## previous life
 
 - Use socket.io with nestjs: [Youtube Video](https://www.youtube.com/watch?v=7xpLYk4q0Sg)
