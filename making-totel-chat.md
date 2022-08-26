@@ -24,6 +24,11 @@ Creating a Verify service i.e., OTP verification: (via sms/whatsapp/email/etc
 
 ![image](https://user-images.githubusercontent.com/31458531/186920471-0d0f0afe-10dd-4e61-a2e7-bfd2dbc27378.png)
 
+- I WAS GETTING ERROR code `20003` probably bcoz my account is suspended. Source: [Error 20003](https://www.twilio.com/docs/api/errors/20003)
+
+![image](https://user-images.githubusercontent.com/31458531/186921909-5397069d-c84d-459f-901e-814cb31d67fd.png)
+
+
 ## new life
 
 - chat app with firebase: https://youtu.be/zQyrwxMPm88
