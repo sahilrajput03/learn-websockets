@@ -8,6 +8,10 @@
 
 ![image](https://user-images.githubusercontent.com/31458531/186844800-c1b6a1b4-a345-4d2a-8dfe-3e676a885910.png)
 
+Creating a Verify service i.e., OTP verification: (via sms/whatsapp/email/etc
+
+![image](https://user-images.githubusercontent.com/31458531/186848635-532229d2-6461-40da-bb22-d067b03c2e3c.png)
+
 
 ## new life
 
