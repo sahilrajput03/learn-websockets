@@ -12,9 +12,14 @@ Creating a Verify service i.e., OTP verification: (via sms/whatsapp/email/etc
 
 ![image](https://user-images.githubusercontent.com/31458531/186848635-532229d2-6461-40da-bb22-d067b03c2e3c.png)
 
-Now you may pin the product for faster access when you need it later:
+- Now you may pin the product for faster access when you need it later:
 
 ![image](https://user-images.githubusercontent.com/31458531/186864367-9a18bf87-436f-4efe-b800-70855ef3024c.png)
+
+- You can check the logs of otps send on your account by navigating to this:
+
+![image](https://user-images.githubusercontent.com/31458531/186871379-4f35ebff-0149-4260-87fa-561065b56457.png)
+
 
 ## new life
 
