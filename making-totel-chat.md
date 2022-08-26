@@ -20,6 +20,9 @@ Creating a Verify service i.e., OTP verification: (via sms/whatsapp/email/etc
 
 ![image](https://user-images.githubusercontent.com/31458531/186871379-4f35ebff-0149-4260-87fa-561065b56457.png)
 
+- You can check usage summary of twilio products via:
+
+![image](https://user-images.githubusercontent.com/31458531/186920471-0d0f0afe-10dd-4e61-a2e7-bfd2dbc27378.png)
 
 ## new life
 
