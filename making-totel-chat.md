@@ -28,6 +28,8 @@ Creating a Verify service i.e., OTP verification: (via sms/whatsapp/email/etc
 
 ![image](https://user-images.githubusercontent.com/31458531/186921909-5397069d-c84d-459f-901e-814cb31d67fd.png)
 
+- Firebase also have signup with phone number as well (Good Guide):  https://firebase.google.com/docs/auth/web/phone-auth?authuser=0&hl=en
+
 
 ## new life
 
