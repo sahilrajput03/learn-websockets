@@ -1,6 +1,12 @@
 # making totel chat app
 
-## Creating types api works like that
+## Post man requests
+
+- **Creating locations with api:**
+
+![image](https://user-images.githubusercontent.com/31458531/188494377-d1617626-c216-4994-b581-ca0d94e4cf18.png)
+
+- **Creating types api works like that:**
 
 ![image](https://user-images.githubusercontent.com/31458531/188493682-6acd3259-ef19-4e29-b1f9-790c4f9424e0.png)
 
