@@ -4,7 +4,7 @@
 
 - **Creating locations with api:**
 
-![image](https://user-images.githubusercontent.com/31458531/188494377-d1617626-c216-4994-b581-ca0d94e4cf18.png)
+![image](https://user-images.githubusercontent.com/31458531/188494710-5a5e8bfb-f3c8-4572-ab98-65574acbacc4.png)
 
 - **Creating types api works like that:**
 
