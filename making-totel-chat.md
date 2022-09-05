@@ -1,5 +1,9 @@
 # making totel chat app
 
+## Creating types api works like that
+
+![image](https://user-images.githubusercontent.com/31458531/188493682-6acd3259-ef19-4e29-b1f9-790c4f9424e0.png)
+
 ## Using twilio in totel
 
 ![image](https://user-images.githubusercontent.com/31458531/186841804-fe7d80f4-f2e8-44fd-83d5-773f6abeb334.png)
