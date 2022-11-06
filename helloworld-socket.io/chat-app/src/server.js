@@ -6,9 +6,11 @@ const server = require('http').createServer(app)
 // USE BELOW LINE INSTEAD IF YOU DO NOT USE EXPRESS AT ALL
 // const server = require('http').createServer()
 
-//? SOCKET.IO CHEATSHEET
-//? YAHHH: https://socket.io/docs/v3/emit-cheatsheet/
+/**
+	SOCKET.IO CHEATSHEET
 
+	https://socket.io/docs/v3/emit-cheatsheet/
+*/
 const IS_HEROKU = !!process.env.IS_HEROKU
 console.log({IS_HEROKU})
 
@@ -50,7 +52,7 @@ io.on('connection', (socket) => {
 
 	// On successful connection we send 'join' event to the client
 	const payload = {clientName, clientId, currentConnections}
-	// io.to(clientId).emit('join', payload) // io.to method is to send to a particular client and in this case we send to the current client.
+	// io.to(clientId).emit('join', payload) // io.to method is to send to a particular/specific client and in this case we send to the current client.
 	io.emit('join', payload) // io.emit is to send to all clients.
 
 	// listening on `message` event
