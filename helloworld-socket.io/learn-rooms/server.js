@@ -12,10 +12,15 @@ const io = socketIo(server)
 
 // ns1.on('connection', (socket) => console.log('user connected to ns1 namespace?', socket.nsp.name))
 io.on('connection', (socket) => {
-	socket.join('room1') // make member to join room1
+
+	socket.on('join', () => {
+		socket.join('room1') // make member to join room1
+	})
+
+	// This is to notify clients about event of room joining when client calls ```socket.emit('join')```
 	socket.on('memberConnected', () => {
 		// socket.to('room1').emit('joinedRoom', socket.id) // Send to all clients except the sender
-		// Using below for testing only (For production you don't want to send to all clients + yoursel, SO YOU MUST USE ABOVE INSTEAD TO SEND TO ALL CLIENTS OF ROOM1 EXCEPT SELF).
+		// Using below for testing only (For production you don't want to send to (all clients + yoursel), SO YOU MUST USE ABOVE INSTEAD TO SEND TO ALL CLIENTS OF ROOM1 EXCEPT SELF).
 		io.in('room1').emit('joinedRoom', socket.id) // Send to all client
 	})
 })

@@ -5,10 +5,12 @@ const socket = io.connect('http://localhost:3000') // namespace /
 // const ns1 = io.connect('http://localhost:3000/ns1') // namespace /ns1
 
 socket.on('joinedRoom', (clientId) => {
-	console.log('<-joinedRoom event triggered', clientId)
+	console.log('->joinedRoom event triggered', clientId)
 })
+
+socket.emit('join')
 
 setTimeout(() => {
 	socket.emit('memberConnected')
-	console.log('-> executed `memberConnected`')
-}, 3000)
+	console.log('<-executed `memberConnected`')
+}, 2000)
