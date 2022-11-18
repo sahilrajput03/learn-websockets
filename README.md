@@ -43,3 +43,9 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
   Source: [Click Here](https://socket.io/docs/v4/middlewares/#registering-a-middleware)
 
   ![image](https://user-images.githubusercontent.com/31458531/202636678-7261d4a7-4daf-43da-a54c-9dd606a0e5bf.png)
+
+- **Sending Creentials**
+
+  Source: [Click here](https://socket.io/docs/v4/middlewares/#sending-credentials)
+
+  ![image](https://user-images.githubusercontent.com/31458531/202637567-c9b265d3-3e25-4a94-a2ce-014436c5a44d.png)
