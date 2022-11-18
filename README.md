@@ -31,6 +31,15 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
 
 ## Reading docs of Socket.io
 
-Source: Upgrade Mechanism: [Click here](https://socket.io/docs/v4/how-it-works/#upgrade-mechanism)
+- **Upgrade Mechanism**
+
+Source: [Click here](https://socket.io/docs/v4/how-it-works/#upgrade-mechanism)
 
 ![image](https://user-images.githubusercontent.com/31458531/202636223-5da4becb-d544-4949-90ff-117dd776e22e.png)
+
+
+- **Registering a Middleware**
+
+Source: [Click Here](https://socket.io/docs/v4/middlewares/#registering-a-middleware)
+
+![image](https://user-images.githubusercontent.com/31458531/202636678-7261d4a7-4daf-43da-a54c-9dd606a0e5bf.png)
