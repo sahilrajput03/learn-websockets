@@ -31,6 +31,20 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
 
 ## Reading docs of Socket.io
 
+- **Server Instance**
+
+  Soure: Click here
+
+  ![image](https://user-images.githubusercontent.com/31458531/202637866-a92a2c12-a9c0-40ff-bc4f-461f04f5a27e.png)
+  
+- **Socket Instance**
+
+  Source: [Click here](https://socket.io/docs/v4/server-socket-instance/)
+
+  ![image](https://user-images.githubusercontent.com/31458531/202637960-94b9a592-22df-490d-96c9-dbd830409527.png)
+
+
+
 - **Upgrade Mechanism**
 
   Source: [Click here](https://socket.io/docs/v4/how-it-works/#upgrade-mechanism)
