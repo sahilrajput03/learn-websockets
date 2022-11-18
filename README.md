@@ -63,3 +63,9 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
   Source: [Click here](https://socket.io/docs/v4/middlewares/#sending-credentials)
 
   ![image](https://user-images.githubusercontent.com/31458531/202637567-c9b265d3-3e25-4a94-a2ce-014436c5a44d.png)
+
+- **Events**
+
+  Source: [Click here](https://socket.io/docs/v4/server-instance/#events)
+
+  ![image](https://user-images.githubusercontent.com/31458531/202638874-63449bb0-fd03-4633-986d-4f959fcbec9c.png)
