@@ -31,6 +31,13 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
 
 ## Reading docs of Socket.io
 
+
+**Coplete Api**
+
+  [Click here](https://socket.io/docs/v4/server-api/#server)
+  
+  ![image](https://user-images.githubusercontent.com/31458531/202639303-96edd383-3f8d-4adc-bff6-d05021015629.png)
+
 - **Server Instance**
 
   Soure: Click here
