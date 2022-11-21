@@ -28,3 +28,50 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
 - Links:
   - https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
   - https://webrtc.org/
+
+## Reading docs of Socket.io
+
+- **Server Instance**
+
+  Soure: Click here
+
+  ![image](https://user-images.githubusercontent.com/31458531/202637866-a92a2c12-a9c0-40ff-bc4f-461f04f5a27e.png)
+  
+- **Socket Instance**
+
+  Source: [Click here](https://socket.io/docs/v4/server-socket-instance/)
+
+  ![image](https://user-images.githubusercontent.com/31458531/202637960-94b9a592-22df-490d-96c9-dbd830409527.png)
+
+
+
+- **Upgrade Mechanism**
+
+  Source: [Click here](https://socket.io/docs/v4/how-it-works/#upgrade-mechanism)
+
+  ![image](https://user-images.githubusercontent.com/31458531/202636223-5da4becb-d544-4949-90ff-117dd776e22e.png)
+
+
+- **Registering a Middleware**
+
+  Source: [Click Here](https://socket.io/docs/v4/middlewares/#registering-a-middleware)
+
+  ![image](https://user-images.githubusercontent.com/31458531/202636678-7261d4a7-4daf-43da-a54c-9dd606a0e5bf.png)
+
+- **Sending Creentials**
+
+  Source: [Click here](https://socket.io/docs/v4/middlewares/#sending-credentials)
+
+  ![image](https://user-images.githubusercontent.com/31458531/202637567-c9b265d3-3e25-4a94-a2ce-014436c5a44d.png)
+
+- **Events**
+
+  Source: [Click here](https://socket.io/docs/v4/server-instance/#events)
+
+  ![image](https://user-images.githubusercontent.com/31458531/202638874-63449bb0-fd03-4633-986d-4f959fcbec9c.png)
+
+- **Complete Api - Version 4.x**
+
+  [Click here](https://socket.io/docs/v4/server-api/#server)
+  
+  ![image](https://user-images.githubusercontent.com/31458531/202639303-96edd383-3f8d-4adc-bff6-d05021015629.png)
