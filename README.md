@@ -29,6 +29,10 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
   - https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
   - https://webrtc.org/
 
+**Q. Amazing Question: Differences between io.to(), io.in(), and socket.to() for emitting to all clients in a room**
+
+[Click here](https://stackoverflow.com/questions/42988262/differences-between-io-to-io-in-and-socket-to-for-emitting-to-all-client)
+
 ## Reading docs of Socket.io
 
 - **Server Instance**
