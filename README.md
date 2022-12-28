@@ -79,3 +79,9 @@ src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
   [Click here](https://socket.io/docs/v4/server-api/#server)
   
   ![image](https://user-images.githubusercontent.com/31458531/202639303-96edd383-3f8d-4adc-bff6-d05021015629.png)
+
+- **Acknowledgements:**
+
+  Docs: [Click here](https://socket.io/docs/v3/emitting-events/#acknowledgements)
+  
+  ![image](https://user-images.githubusercontent.com/31458531/209868857-51bcab9c-3ba1-4cd3-b9c9-c492e59fb91d.png)
