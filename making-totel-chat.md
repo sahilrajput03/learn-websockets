@@ -109,6 +109,8 @@ Thats how project auth is organized:
 - Source: [Official google signin docs](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid)
 - Follow along video by an amazing person: [@youtube](https://youtu.be/XjOEKbHkAeo)
 
+![image](https://github.com/sahilrajput03/learn-websockets/assets/31458531/e9d9da04-9f80-4a54-bfa3-3dad9f6c62d4)
+
 ![image](https://user-images.githubusercontent.com/31458531/186201499-bef2e6a9-ceae-41f3-961c-01a0efb8b953.png)
 
 ![image](https://user-images.githubusercontent.com/31458531/186201852-f076c164-71b5-4fe8-ad4f-a5dcf7e77e65.png)
