@@ -1,5 +1,7 @@
 # Websockets
 
+- **Sample Procfile for heroku: [Click here](https://github.com/sahilrajput03/learn-websockets/blob/main/learn-socket.io/chat-app/Procfile)**
+
 FYI: `helloworld-socket.io` is deployed @ [https://elegant-chat-app.herokuapp.com/](https://elegant-chat-app.herokuapp.com/).
 
 src: https://www.youtube.com/watch?v=1BfCnjr_Vjg&t=3s
